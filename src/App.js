@@ -14,7 +14,7 @@ import HeaderNavigation from './components/HeaderNavigation';
 import Characters from './pages/Characters.js';
 import Episodes from './pages/Episodes.js';
 import Home from './pages/Home.js';
-import FavoriteChars from './pages/FavoriteChars'
+import FavoriteChars from './pages/FavoriteChars';
 
 function App() {
   return (
@@ -50,8 +50,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 7rem;
+  width: 330px;
   gap: 1rem;
+  margin: 0 auto;
 `;
 
 const Header = styled.header`
@@ -59,9 +60,10 @@ const Header = styled.header`
   flex-direction: column;
   align-items: center;
   border-radius: 0px 0px 15px 10px;
-  overflow: hidden;
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  /* overflow: hidden;
   position: fixed;
-  top: 0;
+  top: 0; */
   width: 100%;
   /* height: 100px; */
 `;
@@ -70,5 +72,5 @@ const Logo = styled.img`
   // margin-left: 10%;
   // margin-right: 10%;
   // width: 0 auto;
-  width: 300px;
+  width: 175px;
 `;

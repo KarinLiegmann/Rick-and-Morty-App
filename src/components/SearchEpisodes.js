@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Search = ({ getQuery }) => {
+const SearchEpisodes = ({ getQuery }) => {
   //1. Dem Inputfeld einen State zuweisen
   const [text, setText] = useState('');
 
@@ -17,7 +17,7 @@ const Search = ({ getQuery }) => {
       <Formstyler>
         <Inputstyler
           type="text"
-          placeholder="Search for Character"
+          placeholder="Search for Episode"
           value={text} //text von useState s.o.
           onChange={(e) => onChange(e.target.value)}
           // 2. Wird beim tippen ausgelöst und der Wert in der Klammer geht in Value
@@ -31,7 +31,7 @@ const Search = ({ getQuery }) => {
   );
 };
 
-export default Search;
+export default SearchEpisodes;
 
 const Inputstyler = styled.input`
   width: 330px; /*

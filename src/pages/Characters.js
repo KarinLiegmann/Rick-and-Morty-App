@@ -12,9 +12,10 @@ export default function Characters() {
   const [isHuman, setIsHuman] = useState([]);
   const [isAlien, setIsAlien] = useState([]);
   const [query, setQuery] = useState('');
-  const [isChecked, setIsChecked] = useState(loadFromLocal('favoriteChars') ?? [])
+  const [isChecked, setIsChecked] = useState(
+    loadFromLocal('favoriteChars') ?? []
+  );
   //  Query in Fetch einfügen und neuen useState anlegen
-
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -27,17 +28,15 @@ export default function Characters() {
         species: item.species,
         origin: item.origin.name,
         image: item.image,
-
       }));
       console.log(result.data.results);
-      setCardInfos(characters)
+      setCardInfos(characters);
       console.log(characters);
     };
     fetchItems();
   }, [query]);
 
   useEffect(() => {
-
     saveToLocal('favoriteChars', isChecked);
   }, [isChecked]);
 
@@ -45,20 +44,12 @@ export default function Characters() {
 
   // Wenn der Wert query geändert wird, wird der useEffect ausgelöst
   function toggleCheckbox(idToToggle) {
-    const favouriteCard = cardInfos.filter((card) => (card.id === idToToggle))
+    const favouriteCard = cardInfos.filter((card) => card.id === idToToggle);
 
-    setIsChecked([
-      ...isChecked, ...favouriteCard
-    ])
+    setIsChecked([...isChecked, ...favouriteCard]);
 
     /* saveToLocal('favoriteChars', isChecked); */
-
   }
-
-
-
-
-
 
   function showAll() {
     setIsHuman([]);
@@ -102,8 +93,6 @@ export default function Characters() {
     data = cardInfos;
   }
 
-
-
   return (
     <>
       <Search getQuery={(q) => setQuery(q)} />
@@ -113,26 +102,35 @@ export default function Characters() {
         <Button text="Show All" currywurstFunktion={showAll} />
       </ButtonWrapper>
 
-      {data.map(({ name, species, origin, image, id, isFavorite, onChangeFunction }) => (
-        <Cards
-          key={id}
-          name={name}
-          species={species}
-          origin={origin}
-          image={image}
-          onChangeFunction={() => toggleCheckbox(id)}
-        />
-      ))}
+      {data.map(
+        ({
+          name,
+          species,
+          origin,
+          image,
+          id,
+          isFavorite,
+          onChangeFunction,
+        }) => (
+          <Cards
+            key={id}
+            name={name}
+            species={species}
+            origin={origin}
+            image={image}
+            onChangeFunction={() => toggleCheckbox(id)}
+          />
+        )
+      )}
     </>
   );
 }
 
 const ButtonWrapper = styled.div`
   display: flex;
-  gap: 2rem;
-  background: none;
-  opacity: 1;
+  justify-content: space-around;
+  gap: 0.3rem;
   height: 30px;
-  width: auto;
   border-radius: 10px;
+  width: 330px;
 `;

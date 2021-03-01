@@ -23,10 +23,6 @@ export default function Cards({
     setIsShowingDetails(!isShowingDetails);
   }
 
-
-
-
-
   return (
     <CardWrapper>
       <CheckboxWrapper>
@@ -56,27 +52,29 @@ const CardWrapper = styled.div`
   // border: black solid 1px;
   background-image: url(${card_background});
   background-size: cover;
+
   color: white;
   border-radius: 10px;
   padding: 1rem;
   /* margin-left: 10%;
   margin-right: 10%; */
-  width: 350px;
+  width: 330px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 `;
 
 const ImageWrapper = styled.img`
   border-radius: 10px;
+  width: 250px;
 `;
 
 const TitleWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba(48, 142, 10, 0.2);
   margin-top: 1rem;
   padding: 1rem;
-  border-radius: 10px;
+  width: 330px;
 `;
 
 const CheckboxWrapper = styled.div`
