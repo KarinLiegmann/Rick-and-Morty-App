@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-export default function FavoriteCheckBox({ onChangeFunction, Cards }) {
+export default function FavoriteCheckBox({ onChangeFunction }) {
   return (
     <Wrapper>
       <p>Favorite</p>

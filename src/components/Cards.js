@@ -13,7 +13,7 @@ export default function Cards({
   origin,
   image,
   text,
-  currywurstFunktion,
+  onClickFunction,
   isFavorite,
   onChangeFunction,
 }) {
@@ -37,7 +37,7 @@ export default function Cards({
           details={isShowingDetails}
         />
         <Button
-          currywurstFunktion={toggleDetails}
+          onClickFunction={toggleDetails}
           text={isShowingDetails ? 'Hide Details' : 'Show More'}
         />
       </TitleWrapper>

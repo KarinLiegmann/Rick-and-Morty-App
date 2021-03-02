@@ -40,15 +40,12 @@ export default function Characters() {
     saveToLocal('favoriteChars', isChecked);
   }, [isChecked]);
 
-  //   loadFromLocal('Characters');
 
   // Wenn der Wert query geändert wird, wird der useEffect ausgelöst
   function toggleCheckbox(idToToggle) {
     const favouriteCard = cardInfos.filter((card) => card.id === idToToggle);
 
     setIsChecked([...isChecked, ...favouriteCard]);
-
-    /* saveToLocal('favoriteChars', isChecked); */
   }
 
   function showAll() {
@@ -59,7 +56,7 @@ export default function Characters() {
 
   function showHumans() {
     const humans = cardInfos.filter(
-      (currywurst) => currywurst.species === 'Human'
+      (card) => card.species === 'Human'
     );
     setIsHuman(humans);
     setIsAlien([]);
@@ -67,7 +64,7 @@ export default function Characters() {
 
   function showAliens() {
     const alien = cardInfos.filter(
-      (currywurst) => currywurst.species === 'Alien'
+      (card) => card.species === 'Alien'
     );
     setIsAlien(alien);
     setIsHuman([]);
@@ -75,10 +72,10 @@ export default function Characters() {
 
   let data;
   let oldAlienData = cardInfos.filter(
-    (currywurst) => currywurst.species === 'Alien'
+    (card) => card.species === 'Alien'
   );
   let oldHumanData = cardInfos.filter(
-    (currywurst) => currywurst.species === 'Human'
+    (card) => card.species === 'Human'
   );
 
   if (isHuman.length > 0) {
@@ -97,9 +94,9 @@ export default function Characters() {
     <>
       <Search getQuery={(q) => setQuery(q)} />
       <ButtonWrapper>
-        <Button text="Filter Humans" currywurstFunktion={showHumans} />
-        <Button text="Filter Aliens" currywurstFunktion={showAliens} />
-        <Button text="Show All" currywurstFunktion={showAll} />
+        <Button text="Filter Humans" onClickFunction={showHumans} />
+        <Button text="Filter Aliens" onClickFunction={showAliens} />
+        <Button text="Show All" onClickFunction={showAll} />
       </ButtonWrapper>
 
       {data.map(
