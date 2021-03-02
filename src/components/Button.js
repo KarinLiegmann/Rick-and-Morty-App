@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 import React from 'react';
 
-export default function Button({ text, currywurstFunktion }) {
+export default function Button({ text, onClickFunction }) {
   return (
     <ButtonStyler>
-      <button onClick={currywurstFunktion}>{text}</button>
+      <button onClick={onClickFunction}>{text}</button>
     </ButtonStyler>
   );
 }
@@ -16,7 +16,6 @@ const ButtonStyler = styled.div`
   button {
     border: none;
     text-decoration: none;
-    /* color: white; */
     font-size: 1rem;
     background-image: linear-gradient(
       to right,
@@ -30,12 +29,11 @@ const ButtonStyler = styled.div`
     transition: 0.5s;
     background-size: 200% auto;
     color: white;
-    /* box-shadow: 0 0 20px #eee; */
     border-radius: 10px;
     display: block;
   }
   button:hover {
-    background-position: right center; /* change the direction of the change here */
+    background-position: right center;
     color: #fff;
     text-decoration: none;
   }

@@ -5,9 +5,6 @@ import header from './img/logo.png';
 import {
   Switch,
   Route,
-  NavLink,
-  useParams,
-  useRouteMatch,
 } from 'react-router-dom';
 
 import HeaderNavigation from './components/HeaderNavigation';
@@ -60,17 +57,9 @@ const Header = styled.header`
   flex-direction: column;
   align-items: center;
   border-radius: 0px 0px 15px 10px;
-  /* background-color: rgba(0, 0, 0, 0.2); */
-  /* overflow: hidden;
-  position: fixed;
-  top: 0; */
   width: 100%;
-  /* height: 100px; */
 `;
 
 const Logo = styled.img`
-  // margin-left: 10%;
-  // margin-right: 10%;
-  // width: 0 auto;
   width: 175px;
 `;
